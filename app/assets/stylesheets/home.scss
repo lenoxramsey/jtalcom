@@ -1,0 +1,201 @@
+$hero-search-height: 300px;
+
+// Navigation Menu
+$topbar-responsive-bg: #2c3840;
+$topbar-responsive-animation-type: fade-in; // or use slide-down or none
+
+.topbar-responsive {
+  background: $topbar-responsive-bg;
+  padding: 1rem 1.5rem;
+
+  .menu {
+    background: $topbar-responsive-bg;
+
+    li:last-of-type {
+      margin-right: 0;
+    }
+
+    a {
+      color: $white;
+      transition: color 0.15s ease-in;
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        padding: 0.875rem 0;
+      }
+    }
+
+    .topbar-responsive-button {
+      color: $white;
+      border-color: $white;
+      border-radius: 5000px;
+      transition: color 0.15s ease-in, border-color 0.15s ease-in;
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+        border-color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        width: 100%;
+        margin: 0.875rem 0;
+      }
+    }
+  }
+
+   @media screen and (max-width: 39.9375em) {
+     padding: 0.75rem;
+
+    .top-bar-left {
+      position: relative;
+      width: 100%;
+
+      span {
+        position: absolute;
+        right: 0;
+        border: 1px solid $white;
+        border-radius: 5px;
+        padding: 0.25rem 0.45rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .menu-icon {
+          margin-bottom: 4px;
+        }
+      }
+      
+      
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity:0;
+  } to {
+    opacity:1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@include breakpoint(small only) {
+  .topbar-responsive-links {
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+    width: 100%;
+
+    @if $topbar-responsive-animation-type == slide-down {
+      animation: slideDown 1s ease-in;
+    } @else if $topbar-responsive-animation-type == fade-in {
+      animation: fadeIn 1s ease-in;
+    } @else {
+      animation: none;
+    }
+  }
+}
+
+
+// Hero Search
+.hero-search {
+  background: transparent;
+  height: $hero-search-height;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.hero-search-logo {
+  margin-bottom: 2rem;
+}
+
+.hero-search-content {
+  display: flex;
+  width: 100%;
+  height: $hero-search-height;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-search-menu {
+  flex-wrap: wrap;
+
+  @include breakpoint(small only) {
+    li {
+      flex-basis: 50%;
+
+      a {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.hero-search-menu a {
+  color: $white;
+  font-weight: bold;
+
+  .fa {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hero-search-form {
+  display: flex;
+  width: 90%;
+  background: $white;
+  padding: 0.25rem;
+  border: 1px solid $medium-gray;
+  border-radius: 5px;
+  align-items: center;
+
+  .divider {
+    background-color: $medium-gray;
+    width: 1px;
+  }
+
+  label {
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    color: $dark-gray;
+    font-weight: bold;
+  }
+
+  input,
+  .button {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(small only) {
+    width: 95%;
+  }
+}
+
+.hero-search-form-find,
+.hero-search-form-near {
+  border: 0;
+  box-shadow: none;
+
+  &:focus {
+    border: 0;
+    box-shadow: none;
+  }
+}
+
