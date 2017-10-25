@@ -4,15 +4,22 @@
 <!-- Home Search -->
 <header class="hero-search">
   <div class="hero-search-content">
+    
+    <!-- Hero Text Logo & Tagline -->
     <h1 class="hero-search-logo">Jobs That Are Left</h1>
+    <h3 class="hero-search-tagline">The official job search site for progressives.</h3>
+    
+    <!-- Hero Searchbar -->
     <form class="hero-search-form" action="">
       <label for="findtext">Search</label>
-      <input id="findtext" class="hero-search-form-find" type="text" placeholder="Position title" />
+      <input id="findtext" class="hero-search-form-find" type="text" placeholder="job title, keywords or organization name" />
       <div class="divider">&nbsp;</div>
       <label for="findlocate">Location</label>
-      <input id="findlocate" class="hero-search-form-near" type="text" placeholder="City, State" />
+      <input id="findlocate" class="hero-search-form-near" type="text" placeholder="city, state" />
       <button class="button"><i class="fa fa-search"></i></button>
     </form>
   </div>
 </header>
+
+<%= render 'footer' %>
 

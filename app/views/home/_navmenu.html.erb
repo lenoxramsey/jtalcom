@@ -1,12 +1,15 @@
 <nav class="top-bar topbar-responsive">
   <!-- Left Navigation -->
   <div class="top-bar-left">
-    <ul class="menu simple vertical medium-horizontal">
+    <ul class="menu simple vertical medium-horizontal left-hover">
         <li>
             <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle></button>
             </span>
         </li>
+        <li>
+          <%= link_to "Search Jobs", jobs_path %>
+        </li>        
         <li>
           <%= link_to "Post Jobs", new_recruiter_session_path %>
         </li>
@@ -16,11 +19,34 @@
   <!-- Right Navigation -->
   <div id="topbar-responsive" class="topbar-responsive-links">
     <div class="top-bar-right">
-      <ul class="menu simple vertical medium-horizontal">
+      <ul class="menu simple vertical medium-horizontal right-hover">
         <li>
-          <button type="button" class="button hollow topbar-responsive-button">Login / Register</button>
+          <button type="button" class="button hollow topbar-responsive-button" data-open="jtal-access">Login / Register</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="login-box reveal small" id="jtal-access" data-reveal>
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <h1 class="login-box-title text-center">Register</h1>
+        <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
+        <input class="login-box-input" type="password" name="password" placeholder="Password" />
+        <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
+        <input class="login-box-submit-button" type="submit" name="signup_submit" value="Sign me up" />
+      </div>
+      <div class="or">OR</div>
+    </div>
+    <div class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-social-section-inner">
+        <span class="login-box-social-headline">Login</span>
+        <%= link_to "Login with Facebook", "#", :class =>"login-box-social-button-facebook" %>
+        <%= link_to "Login with Google", "#", :class =>"login-box-social-button-google" %>
+        <%= link_to "Login with Email", "#", :class =>"login-box-social-button-email" %>
+      </div>
+    </div>
+  </div>
+</div>
