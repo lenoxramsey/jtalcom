@@ -7,6 +7,11 @@
                 <button class="menu-icon" type="button" data-toggle></button>
             </span>
         </li>
+        <% if current_page?(root_path) == false %>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <% end %>
         <li>
           <%= link_to "Search Jobs", jobs_path %>
         </li>        
@@ -25,9 +30,11 @@
           <%= link_to "Sign Out", destroy_user_session_path, :class => "button hollow topbar-responsive-button", :method => :delete %>
         </li>
         <% else %>
-        <li>
-          <button type="button" class="button hollow topbar-responsive-button" data-open="jtal-access">Login / Register</button>
-        </li>
+          <% unless current_page?(root_path) == false %>
+          <li>
+            <button type="button" class="button hollow topbar-responsive-button" data-open="jtal-access">Login / Register</button>
+          </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
@@ -67,20 +74,16 @@
          <%= f.submit "Sign Me Up", class: "login-box-submit-button" %>
          </div>
          
-        <% end %>    
+        <% end %>  
         
-        <!--input class="login-box-input" type="email" name="email" placeholder="E-mail" />
-        <input class="login-box-input" type="password" name="password" placeholder="Password" />
-        <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
-        <input class="login-box-submit-button" type="submit" name="signup_submit" value="Sign Me Up" /-->
+        <%= render "users/shared/links" %>
       </div>
       <div class="or">OR</div>
     </div>
     <div class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section">
       <div class="login-box-social-section-inner">
         <span class="login-box-social-headline">Sign In</span>
-        <%= link_to "Sign in with Facebook", "#", :class =>"login-box-social-button-facebook" %>
-        <%= link_to "Sign in with Google", "#", :class =>"login-box-social-button-google" %>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class =>"login-box-social-button-google" %>
         <%= link_to "Sign in with Email", new_user_session_path, :class =>"login-box-social-button-email" %>
       </div>
     </div>

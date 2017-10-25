@@ -266,10 +266,14 @@ $social-brand-google-plus: #dd4b39;
 $social-brand-email: #00aef3;
 
 .login-box {
-  box-shadow: $login-box-shadow;
-  background: $login-box-bg;
-  border-radius: $login-box-radius;
-  overflow: hidden;
+  @if current_page == root_path {
+    box-shadow: $login-box-shadow;
+    background: $login-box-bg;
+    border-radius: $login-box-radius;
+    overflow: hidden;    
+  } else {
+    
+  }
 
   .or {
     @include absolute-center;

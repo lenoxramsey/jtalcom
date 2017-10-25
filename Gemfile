@@ -9,7 +9,6 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 gem 'devise', '~> 4.3'
-gem 'omniauth-facebook', '~> 4.0'
 gem 'omniauth-google-oauth2', '~> 0.5.2'
 
 # Styling

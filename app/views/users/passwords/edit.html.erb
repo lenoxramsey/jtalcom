@@ -1,19 +1,25 @@
-<h2>Change your password</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+<%= foundation_devise_error_messages! %>
+<div class="large-3 large-centered columns">
+  <div class="login-box">
+  <div class="row">
+  <div class="large-12 columns">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put}) do |f| %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="row">
+      <h5 class="text-center"><%= t('.change_your_password', :default => 'Change your password') %></h5>
+      </div>
+      <div class="row">
+        <%= f.password_field :password, autocomplete: "off", class: "large-12 columns", placeholder: "New Password"%>
+      </div>
+      <div class="row">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "large-12 columns", placeholder: "Confirm New Password"%>
+      </div>
+      <div class="row">
+        <%= f.submit t('.change_my_password', :default => 'Change my password'), class: "button expand large-12 large-centered columns" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
