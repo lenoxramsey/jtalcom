@@ -9,6 +9,8 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 gem 'devise', '~> 4.3'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-google-oauth2', '~> 0.5.2'
 
 # Styling
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +21,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'simple_form', '~> 3.5'
 gem 'foundation-rails', '~> 6.4', '>= 6.4.1.2'
-gem 'devise-foundation-views', '~> 0.1.1'
+gem 'devise-foundation-views', '~> 0.0.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

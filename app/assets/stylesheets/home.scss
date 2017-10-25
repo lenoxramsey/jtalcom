@@ -224,13 +224,17 @@ $hero-search-height: 80vh;
 
 // Hero Footer
 .social-footer {
-  padding: 2rem 10rem 0;
-  height: 5vh;
+  padding: 0 10rem 0;
+  max-height: 5vh;
   background: transparent;
   border-top: 1px solid $dark-gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  .social-footer-left {
+    margin-top: 0.5rem;
+  }
 
   .social-footer-icons {
     li:last-of-type {
