@@ -1,15 +1,14 @@
 <nav class="top-bar topbar-responsive">
   <!-- Left Navigation -->
-  <div class="top-bar-left">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+    </span>
+
     <ul class="menu simple vertical medium-horizontal left-hover">
-        <li>
-            <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-            </span>
-        </li>
         <% if current_page?(root_path) == false %>
         <li>
-          <%= link_to "Home", root_path %>
+          <%= link_to "Go Home", root_path %>
         </li>
         <% end %>
         <li>
@@ -19,10 +18,10 @@
           <%= link_to "Post Jobs", new_recruiter_session_path %>
         </li>
     </ul>    
-  </div>
-  
-  <!-- Right Navigation -->
+  </div>    
+
   <div id="topbar-responsive" class="topbar-responsive-links">
+    <!-- Right Navigation -->
     <div class="top-bar-right">
       <ul class="menu simple vertical medium-horizontal right-hover">
         <% if user_signed_in? %>
