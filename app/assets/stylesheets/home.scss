@@ -23,6 +23,10 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     a {
       color: $white;
       transition: color 0.15s ease-in;
+      
+      @if user_signed_in {
+        padding: 0.7rem 1rem;
+      }
 
       &:hover {
         height: 100%;
@@ -391,4 +395,15 @@ $social-brand-email: #00aef3;
   margin-bottom: rem-calc(40);
   font-size: 1.875rem;
   text-align: center;
+}
+
+button.back-btn {
+  margin-left: 40%;
+  text-decoration: underline;
+}
+
+button.forgot-btn {
+  margin-left: 25%;
+  padding: 1rem 0 0 0;
+  text-decoration: underline;
 }

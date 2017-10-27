@@ -41,13 +41,14 @@
   </div>
 </nav>
 
+<!-- User Session | Registration Modal -->
 <div class="login-box reveal small" id="jtal-access" data-reveal>
   <div class="row collapse expanded">
     <div class="small-12 medium-6 column small-order-2 medium-order-1">
       <div class="login-box-form-section">
-        <h1 class="login-box-title text-center">Sign up. It's free.</h1>
+        <h1 class="login-box-title text-center">Sign up, it's free</h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-         <%= devise_error_messages! %>
+        <%= devise_error_messages! %>
 
         <div class="field">
          <%= f.email_field :email, autofocus: true, placeholder: "Enter email", class: "login-box-input" %>
@@ -76,16 +77,82 @@
          
         <% end %>  
         
-        <%= render "users/shared/links" %>
+        <button class="forgot-btn" data-open="jtal-access-forgot">Forgot your password?</button> 
       </div>
       <div class="or">OR</div>
     </div>
     <div class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section">
       <div class="login-box-social-section-inner">
-        <span class="login-box-social-headline">Sign In</span>
+        <span class="login-box-social-headline">Member Sign In</span>
         <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class =>"login-box-social-button-google" %>
-        <%= link_to "Sign in with Email", new_user_session_path, :class =>"login-box-social-button-email" %>
+        <button class="login-box-social-button-email" data-open="jtal-access-email-login">Sign in with Email</button>
       </div>
     </div>
   </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>  
 </div>
+
+<!-- Email Sign In Modal -->
+<div class="login-box reveal small" id="jtal-access-email-login" data-reveal>
+  <div class="row align-center">
+    <div class="small-12 medium-6 medium-offset-3 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-form-section medium-6-offset column">
+        <h1 class="login-box-title text-center">Sign In with Email</h1>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        
+          <div class="row">
+            <%= f.email_field :email, autofocus: true, class: "large-12 columns", placeholder: "Email"%>
+          </div>
+          <div class="row">
+            <%= f.password_field :password, autocomplete: "off", class: "large-12 columns", placeholder: "Password"%>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="row">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+          <div class="row">
+            <%= f.submit  t('.sign_in', :default => "Sign in"), class: "button expand large-12 large-centered columns" %>
+          </div>
+        <% end %>
+        <button class="back-btn" data-open="jtal-access">Go Back</button> 
+      </div>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!-- Forgot Modal -->
+<div class="login-box reveal small" id="jtal-access-forgot" data-reveal>
+  <div class="row align-center">
+    <div class="small-12 medium-6 medium-offset-3 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-form-section medium-6-offset column">
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
+        <%= devise_error_messages! %>
+        
+          <div class="row">
+          <h5 class="text-center"><%= t('.forgot_your_password', :default => 'Forgot your password?') %></h5>
+          </div>
+          <div class="row">
+            <%= f.email_field :email, autofocus: true, class: "large-12 columns", placeholder: "Email"%>
+          </div>
+          <div class="row">
+            <%= f.submit t('.send_me_reset_password_instructions', :default => "Send me reset password instructions"), class: "button expand large-12 large-centered columns" %>
+          </div>
+        <% end %>
+        <button class="back-btn" data-open="jtal-access">Go Back</button> 
+      </div>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>  
+</div>
+      
+        
