@@ -5,7 +5,7 @@ class HomeController < ApplicationController
    private
    
    def resource_name
-      :user
+      :user 
    end
    helper_method :resource_name
    
