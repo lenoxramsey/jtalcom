@@ -7,10 +7,10 @@ class JobsController < ApplicationController
     end
     
     def new
-        if current_recruiter
+        if current_user.recruiter?
             @job = Job.new
         else
-            redirect_to new_recruiter_registration_path, notice: 'Please sign up for recruiter account to post jobs.'
+            redirect_to root_path, notice: 'Please sign up for recruiter account to post jobs.'
         end
     end
     
@@ -18,7 +18,7 @@ class JobsController < ApplicationController
     end
     
     def create
-        @job = current_recruiter.jobs.create(job_params)
+        @job = current_user.jobs.create(job_params)
         @job.save
         
         respond_to do |format|

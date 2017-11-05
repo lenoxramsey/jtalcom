@@ -112,3 +112,24 @@
   </button>  
 </div>
       
+<!-- Recruiter Modal -->
+<div class="login-box reveal small" id="jtal-recruiter-access" data-reveal>
+  <div class="row align-center">
+    <div class="small-12 medium-6 medium-offset-3 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-form-section medium-6-offset column">
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
+
+          <div class="row">
+          <%= f.check_box :recruiter, label: true, as: :boolean %>
+          </div>
+
+            <%= f.submit  t('.sign_in', :default => "Save"), class: "button expand large-12 large-centered columns" %>
+          </div>          
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>  
+</div>
