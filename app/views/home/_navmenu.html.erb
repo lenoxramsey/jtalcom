@@ -6,24 +6,12 @@
     </span>
 
     <ul class="menu simple vertical medium-horizontal left-hover">
-        <% if current_page?(root_path) == false %>
-        <li>
-          <%= link_to "Go Home", root_path %>
-        </li>
-        <% end %>
         <li>
           <%= link_to "Search Jobs", jobs_path %>
         </li> 
-        <% if user_signed_in? && current_user.recruiter? %>
           <li>
             <%= link_to "Post Jobs", new_job_path %>
           </li>
-        <% else %>
-          <li>
-            <button type="button" class="button hollow topbar-responsive-button" data-open="jtal-recruiter-access">Post Jobs</button>
-          </li>
-        <% end %>
-        
     </ul>    
   </div>    
 

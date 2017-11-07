@@ -1,6 +1,15 @@
 <!-- Navigation Menu -->
 <%= render 'navmenu' %>
 
+<% flash.each do |key, value| %>
+  <div data-closable class="callout alert-callout-subtle alert">
+    <%= value %>    
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>  
+<% end %> 
+
 <!-- Home Search -->
 <header class="hero-search">
   <div class="hero-search-content">

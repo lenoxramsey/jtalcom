@@ -7,10 +7,12 @@ class JobsController < ApplicationController
     end
     
     def new
-        if current_user.recruiter?
+        if user_signed_in?
             @job = Job.new
         else
-            redirect_to root_path, notice: 'Please sign up for recruiter account to post jobs.'
+            respond_to do |format|
+                format.html { redirect_to root_path, alert: "Please sign up for member account to post a listing." }
+            end            
         end
     end
     
